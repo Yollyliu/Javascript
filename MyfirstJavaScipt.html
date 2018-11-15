@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My first JavaScript</title>
+	<script src="myScript.js"></script>
+	<script>
+		function displayDate() {
+			document.getElementById("demo").innerHTML=Date();
+		}
+		function welcome(){
+			document.getElementById("first").innerHTML="hello";
+		}
+		function Himom(){
+			document.getElementById("second").innerHTML="but you have to work on yourself";
+		}
+		function changeImage(){
+			element=document.getElementById('myimage');
+			if(element.src.match("bulbon")){
+				element.src="pic_bulboff.gif";
+			}else{
+				element.src="pic_bulbon.gif";
+			}
+		}
+		function changeSizeAndColor(){
+			x=document.getElementById("demo");
+			x.style.color="#ff0000"; 
+		}
+		function checkText(){
+			var x=document.getElementById("check").value;
+			if(isNaN(x)||x.replace(/(^\s*)|(\s*$)/g,"")==""){
+				alert("Please enter number without space")
+			}
+
+			var x=document.getElementById("demo").value;
+		}
+       function tryWorld(){
+       	document.write("<h1>This is a new world, there are plenty of things you need to learn</h1>");
+       	document.write("16+'Volve'");
+       }
+
+
+	</script>
+</head>
+<body>
+	
+	
+	<h1> Do not give up.</h1>
+	<p>use window.alert() to show windows</p>
+	<p>use document.write() to write content to HTML document</p>
+	<p>use innerHTML write to HTML element</p>
+	<p>use console.log() write to control of brosewer.</p>
+
+
+	<p id="demo">This is a time information</p>
+	<button type="button" onclick="displayDate()" >show Date</button>
+
+	<button type="button" onclick="changeSizeAndColor()">click here to change color</button>
+	<p id="first"> This is a welcome information.</p>
+	<button type="button" onclick="welcome()" >show Date</button>
+	<button type="button" onclick="alert('welcome')">click on me for windows</button>
+	<p id="second"> I know you miss you mom.</p>
+	<button type="button" onclick="Himom()">Mom</button>
+	<button type="buttom" onclick="tryWorld()"> Click me</button>
+	<img id="myimage" onclick="changeImage()" src="pic_bulboff.gif" width="100" height="180">
+
+	<p>Please enter your account name</p>
+	<input id="check" type="text" name="acc_name">
+	<button type="button" onclick="checkText()">submit</button>
+	<script >
+		a=5;
+		b=6;
+		c=a+b;
+		console.log(c);
+	</script>
+
+
+
+</body>
+</html>
+
