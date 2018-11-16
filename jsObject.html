@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Object webpage </title>
+	<script>
+		function newDoc(){
+			// window.location.assign("http://www.w3cschool.cc");
+			window.location.assign("http://www.w3cschool.cc")
+		}
+		 function goBack()
+         {
+            window.history.back()
+         }
+         function goForward()
+         {
+              window.history.forward()
+         }
+         function yesNo(){
+         	var x;
+         	var r=confirm("please make your choice");
+         	if(x==true){
+         		x="you are press yes";
+         	}else{
+         		x="you are press no";
+         	}
+         	document.getElementById("demo").innerHTML=x;
+        
+         }
+
+
+
+
+	</script>
+</head>
+<body>
+	<input type="button" value="download new file" onclick="newDoc()"><br>
+	<input type="button" value="Back" onclick="goBack()"><br>
+	<button onclick="yesNo()">click me to see yes framework</button>
+	<p id="demo"></p>
+
+
+</body>
+</html>
