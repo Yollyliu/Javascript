@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+		#panel,#flip
+		{
+			padding:5px;
+			text-align:center;
+
+			background-color:#e5eecc;
+			border:solid 1px #c3c3c3;
+		}
+		#panel
+		{
+			padding:50px;
+
+		}
+		.important
+		{
+			font-weight:bold;
+			font-size:xx-large;
+		}
+		.blue
+		{
+			color:blue;
+		}
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script >
+
+		function myFunction() //use attr to set attribute, use return to write text
+		{
+		    $("#h01").attr("style","color:red","text-align:center").slideUp(2000).slideDown(2000);
+		    $("#h01").click(function(){
+		    	$("#h02").html("<b>Welcome to the interesting world!</b><br>"); 
+		    	$("#h01").after("Learning jQuery everyday<br>").attr("color:red");
+		    })
+		    $("#h02").click(function(){
+		    	$("#h03").html(function(i,origText){
+		    		return origText+"  jQuery is <b>interesting!</b><br> ";
+		    	})
+		    	$("#h02").append(" Be a skilled front end developer</br>")
+		    })
+		    $("#changeHref").click(function(){
+		    $("#runoob").attr({
+		      "href" : "http://www.runoob.com/jquery",
+		      "title" : "jQuery study"
+		    });
+			title =  $("#runoob").attr('title');
+			$("#runoob").html(title);
+		  });
+
+
+		}
+		
+
+
+		$(document).ready(myFunction);
+
+		$(document).ready(function(){
+			$("p").click(function(){
+				$(this).hide();
+			});
+		});
+
+		$(function(){
+			$("#hideAll").click(function(){
+				$("p").hide();       //when press button, the p passage will hide()
+			})
+			$("#hide").click(function(){     //this will disappear in 1s
+				$("div").hide(1000, "linear",function(){
+					alert("Hidden() is done")
+				});
+			})
+			$("#show").click(function(){
+				$("div").show(1000);
+			})
+
+			$("#hideAShow").click(function(){
+				$("div").toggle(1000);
+			})
+
+			$("#fadeI").click(function(){
+				$("#div1").fadeIn();
+				$("#div2").fadeIn(100);
+				$("#div3").fadeIn("slow");
+
+			})
+			$("#fadeO").click(function(){
+				$("#div1").fadeOut();
+				$("#div2").fadeOut(100);
+				$("#div3").fadeOut("slow");
+			})
+
+
+			$("#fadeIO").click(function(){
+				$("#div1").fadeToggle();
+				$("#div2").fadeToggle(100);
+				$("#div3").fadeToggle("slow");
+			})
+
+			$("#flip").click(function(){
+                $("#panel").slideToggle("slow");
+             });
+			// $("#panelStop").click(function(){
+			// 	$("#animateContinue").stop();
+			// });
+			 $("#panelStop").click(function(){
+			    $("#animateContinue").stop();
+			  });
+
+			 $("#changeSize").click(function(){
+			 	$("button").addClass("blue");
+			 	// $("body button:five").addClass("important");
+			 	$("body button:first").addClass("important blue");
+			 })
+
+			 $("#removeSize").click(function(){
+			 	$("button").removeClass("blue");
+			 })
+
+
+			$("#animate").click(function(){
+				$("#animate").animate({
+					left:'+=399px',
+				    opacity:'0.3',
+				    height:'+=150px',
+ 				    width:'+=150px',
+ 				    // fontSize: '3em'
+				} );
+				$("#animate").animate({fontSize:'3em'},"slow");
+			})
+
+
+			$("#jqueryImg").click(function(){
+
+			var txt1="<b>I </b>";                    // 使用 HTML 创建元素
+			var txt2=$("<i></i>").text("love ");     // 使用 jQuery 创建元素
+			var txt3=document.createElement("big");  // 使用 DOM 创建元素
+			txt3.innerHTML="jQuery!     ";
+			$("#jqueryImg").after(txt1,txt2,txt3);          // 在图片后添加文本
+		
+			})
+
+			$("#animateContinue").click(function(){
+			    var div=$("#animateContinue");
+			    div.animate({height:'300px',opacity:'0.4'},"slow");
+			    div.animate({width:'300px',opacity:'0.8'},"slow");
+			    div.animate({height:'100px',opacity:'0.4'},"slow");
+			    div.animate({width:'100px',opacity:'0.8'},"slow");
+		     });
+
+			$("#checkTag").click(function(){
+				 alert("background color = " + $("div").css("background-color"));
+				 $("#checkTag").css("background-color","yellow");
+			})
+
+			$("#remove").click(function(){
+
+				$("#flip").remove();
+				$("#panel").remove();
+				$("#animate").remove();
+				$("#animateContinue").remove();
+			})
+
+
+		})
+		
+		
+
+		$(function(){
+
+					$("#p1").hover(
+		    function(){
+		        alert("hi, you are in p1!");
+		    },
+		    function(){
+		        alert("hi, you are leaving p1!");
+              }
+            );
+		})
+
+</script>
+</head>
+<body>
+<div id="showText" style="text-align: center;" >
+Name: <input type="text" name="name" >
+Email: <input type="text" name="emal"><br>
+<h1 id="h01" >Hi, jQuery </h1>
+<h1 id="h02" ></h1>
+<h1 id="h03" ></h1>
+</div>
+<img src="jquery.png"  id="jqueryImg">
+<p>click me and i will disappear</p>
+<p>click me again</p>
+<p>hi</p><br>
+
+<button id="changeSize">click me to change button color</button><br>
+<button id="removeSize">click me to remove button color</button><br>
+<button id="hideAll">click me to close the above text</button><br>
+<button id="checkTag">click me to get the first background color of div </button><br>
+
+Name: <input type="text" name="name" ><br>
+Email: <input type="text" name="emal"><br>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+<button id="hideAShow">Hide/Show</button><br>
+<button id="remove">close following pictures</button><br>
+<div id="smallDiv" style="width:80px;height:80px;display:none;background-color:#ffffff;">This is a box</div><br>
+
+<button id="fadeI">click this button to check fade in </button><br>
+<button id="fadeO">click this button to check fade out </button><br>
+<button id="fadeIO">click this button to check fade in/out </button><br>
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+<div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+
+
+<div id="flip">click me to see/disappear panel</div>
+<div id="panel">It is funny</div>
+<button id="panelStop">click me to stop this action</button>
+<br>
+<br>
+<br>
+<div style="position: relative;">
+<div id="animate" style="background:#98bf21; height:100px; width:100px; position:absolute; left:200px;">I will move if you click on me </div>
+
+
+
+<div id="animateContinue" style="background:#ccc; height:100px; width:100px; position:relative; ">I can continue move if you click on me </div>
+
+
+<p><a href="http://www.runoob.com" id="runoob">runoob birds</a></p>
+<button id="changeHref">change  href and title</button>
+
+<p id="p1">when mouse over, there will be alert</p>
+
+</div>
+
+
+</body>
+</html>
